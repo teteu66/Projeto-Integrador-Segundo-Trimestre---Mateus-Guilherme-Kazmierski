@@ -1,0 +1,108 @@
+/* Configurações Gerais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121214; /* Fundo escuro moderno */
+    color: #e1e1e6;
+}
+
+/* Estilização do Cabeçalho */
+.header-container {
+    background-color: #1f1f23;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #29292e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Menu de Navegação e Botões */
+.header-nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-btn {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Cores específicas para cada matéria / botão */
+.btn-programacao {
+    background-color: transparent;
+    color: #00adb5; /* Ciano tecnológico */
+    border: 2px solid #00adb5;
+}
+
+.btn-programacao:hover {
+    background-color: #00adb5;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.4);
+}
+
+.btn-robotica {
+    background-color: transparent;
+    color: #ff5722; /* Laranja robótica */
+    border: 2px solid #ff5722;
+}
+
+.btn-robotica:hover {
+    background-color: #ff5722;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
+}
+
+.btn-fisica {
+    background-color: transparent;
+    color: #9c27b0; /* Roxo ciência */
+    border: 2px solid #9c27b0;
+}
+
+.btn-fisica:hover {
+    background-color: #9c27b0;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.4);
+}
+
+/* Responsividade para celulares e telas menores */
+@media (max-width: 600px) {
+    .header-container {
+        padding: 15px 20px;
+    }
+    
+    .header-title {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .header-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-btn {
+        width: 100%;
+    }
+}
