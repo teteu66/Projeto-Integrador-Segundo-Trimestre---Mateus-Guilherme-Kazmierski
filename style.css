@@ -109,3 +109,166 @@ body {
 .banner{
     width: 100%;
 }
+/* Configurações Gerais da Seção */
+.secao-robotica-newton {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc;
+    padding: 80px 20px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.container-newton {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Estilização do Texto */
+.bloco-texto {
+    flex: 1;
+}
+
+.categoria-tag {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.bloco-texto h2 {
+    font-size: 2.5rem;
+    margin: 0 0 20px 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.bloco-texto p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* Tags de Componentes Utilizados */
+.componentes-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.componente-item {
+    background: #334155;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+/* Painel Visual e Animação do Disco */
+.bloco-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.painel-experimento {
+    background: rgba(15, 23, 42, 0.6);
+    border: 2px solid #334155;
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.status-arduino {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #4ade80;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.led-indicador {
+    width: 8px;
+    height: 8px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4ade80;
+    animation: piscar 1s infinite alternate;
+}
+
+.espaco-disco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* O Disco de Newton com gradiente cônico simulando as cores */
+.disco-newton-colorido {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff0000 0deg 51deg, 
+        #ff7f00 51deg 102deg, 
+        #ffff00 102deg 153deg, 
+        #00ff00 153deg 204deg, 
+        #0000ff 204deg 255deg, 
+        #4b0082 255deg 306deg, 
+        #9400d3 306deg 360deg
+    );
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    /* Animação que simula o motor DC girando muito rápido */
+    animation: girarMotor 0.1s linear infinite;
+}
+
+.legenda-visual {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Animações CSS */
+@keyframes girarMotor {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes piscar {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Responsividade para Telas Menores (Celulares) */
+@media (max-width: 768px) {
+    .container-newton {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .bloco-texto h2 {
+        font-size: 2rem;
+    }
+    
+    .componentes-lista {
+        justify-content: center;
+    }
+}
