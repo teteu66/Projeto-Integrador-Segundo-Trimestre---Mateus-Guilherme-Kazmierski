@@ -1,3 +1,4 @@
+/* Reset Básico e Fontes */
 * {
     margin: 0;
     padding: 0;
@@ -74,18 +75,17 @@ body {
     color: #ffffff;
 }
 
-/* REGRA DE EXIBIÇÃO: Oculta todas as seções por padrão */
+/* Regras de Exibição de Seção */
 .secao-conteudo {
     display: none !important;
     padding: 60px 20px;
 }
 
-/* Exibe APENAS a seção ativa */
 .secao-conteudo.ativa {
     display: block !important;
 }
 
-/* Tags */
+/* Tags Visualmente Destacadas */
 .tag-optica {
     padding: 6px 16px;
     border-radius: 20px;
@@ -111,7 +111,7 @@ body {
     color: #818cf8;
 }
 
-/* Layout Seção Programação */
+/* Seção Programação - Disco Interativo */
 #programacao {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
@@ -170,7 +170,7 @@ body {
     padding: 30px;
     text-align: center;
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
 }
 
 .status-arduino {
@@ -181,7 +181,7 @@ body {
     font-size: 0.75rem;
     color: #4ade80;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .led-indicador {
@@ -211,26 +211,57 @@ body {
         #4b0082 255deg 306deg,
         #9400d3 306deg 360deg
     );
-    animation: girarMotor 0.1s linear infinite;
+    animation: girarMotor 0.25s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.controles-interativos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.controles-interativos input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn-interativo {
+    background-color: #00adb5;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-interativo:hover {
+    background-color: #008c93;
 }
 
 .legenda-visual {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #94a3b8;
 }
 
-/* Layout Seção Robótica */
+/* Seção Robótica */
 #robotica {
     background: linear-gradient(135deg, #1c100b 0%, #2a1810 100%);
 }
 
 .container-generico {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
-/* Layout Seção Física */
+/* Seção Física e Tecnociência */
 #fisica-tecnociencia {
     background: linear-gradient(135deg, #090d16 0%, #111827 100%);
 }
@@ -269,6 +300,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 30px 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-parte:hover {
+    transform: translateY(-5px);
+    border-color: #818cf8;
 }
 
 .icone-parte {
@@ -296,6 +333,7 @@ body {
     color: #d1d5db;
 }
 
+/* Animações */
 @keyframes girarMotor {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -306,6 +344,7 @@ body {
     to { opacity: 1; }
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     .container-newton {
         flex-direction: column;

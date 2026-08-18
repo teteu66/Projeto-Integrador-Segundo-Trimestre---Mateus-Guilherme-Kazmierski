@@ -10,6 +10,7 @@
 
 <body>
 
+    <!-- Cabeçalho com Navegação Dinâmica -->
     <header class="header-container">
         <h1 class="header-title">Projeto Integrador - IFA</h1>
         <nav class="header-nav">
@@ -20,9 +21,10 @@
     </header>
 
     <main>
-        <!-- SEÇÃO 1: PROGRAMAÇÃO -->
+        <!-- SEÇÃO 1: PROGRAMAÇÃO (Roda de Newton Automatizada) -->
         <section id="programacao" class="secao-conteudo ativa">
             <div class="container-newton">
+
                 <div class="bloco-texto">
                     <span class="tag-optica tag-programacao">Programação</span>
                     <h2>A Roda de Newton Automatizada</h2>
@@ -48,13 +50,21 @@
                             <span>ARDUINO: CÓDIGO EXECUTANDO</span>
                         </div>
 
+                        <!-- Elemento interativo do disco -->
                         <div class="espaco-disco">
-                            <div class="disco-newton-colorido"></div>
+                            <div id="discoNewton" class="disco-newton-colorido"></div>
                         </div>
 
-                        <p class="legenda-visual">Simulação da ilusão de ótica controlada pelo código</p>
+                        <div class="controles-interativos">
+                            <label for="sliderVelocidade">Velocidade de Rotação (RPM):</label>
+                            <input type="range" id="sliderVelocidade" min="0" max="100" value="50" oninput="ajustarVelocidade(this.value)">
+                            <button class="btn-interativo" onclick="alternarMotor()">Ligar / Desligar Motor</button>
+                        </div>
+
+                        <p class="legenda-visual">Simulação da fusão de cores por sobreposição de freqüência visual</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -63,13 +73,30 @@
             <div class="container-generico">
                 <span class="tag-optica tag-robotica">Robótica Educacional</span>
                 <h2>Sistemas Robóticos e Automação</h2>
-                <p>Conteúdo da seção de Robótica em desenvolvimento.</p>
+                <p>
+                    A robótica integra mecânica, eletrônica e programação para criar sistemas autônomos capazes de realizar tarefas com precisão.
+                </p>
+                <div class="grid-partes-olho" style="margin-top: 30px;">
+                    <div class="card-parte">
+                        <div class="icone-parte">🧠</div>
+                        <h3>Microcontroladores</h3>
+                        <span class="funcao-fisica">Processamento de Sinais</span>
+                        <p>Atuam como o cérebro dos robôs, interpretando leituras de sensores e executando algoritmos de controle.</p>
+                    </div>
+                    <div class="card-parte">
+                        <div class="icone-parte">🔌</div>
+                        <h3>Sensores & Atuadores</h3>
+                        <span class="funcao-fisica">Interação com o Meio</span>
+                        <p>Convertem grandeza físicas (distância, luz, temperatura) em dados e acionam motores e relés.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: FÍSICA E TECNOCIÊNCIA -->
+        <!-- SEÇÃO 3: FÍSICA E TECNOCIÊNCIA (Partes do Olho) -->
         <section id="fisica-tecnociencia" class="secao-conteudo">
             <div class="container-optica">
+
                 <div class="cabecalho-secao">
                     <span class="tag-optica tag-fisica">Física & Tecnociência</span>
                     <h2>Óptica Visual: O Olho como Instrumento Biológico</h2>
@@ -80,6 +107,7 @@
                 </div>
 
                 <div class="grid-partes-olho">
+
                     <div class="card-parte">
                         <div class="icone-parte">🔍</div>
                         <h3>Córnea & Cristalino</h3>
@@ -115,35 +143,63 @@
                             Atua como um cabo de transmissão de alta velocidade, enviando as informações codificadas diretamente ao córtex visual do cérebro para processamento.
                         </p>
                     </div>
+
                 </div>
+
             </div>
         </section>
+
     </main>
 
+    <!-- Script de Interatividade e Troca de Seções -->
     <script>
+        // Função para trocar de seção
         function mostrarSecao(idSecao, botaoClicado) {
-            // Esconde todas as seções
             const secoes = document.querySelectorAll('.secao-conteudo');
             secoes.forEach(secao => {
                 secao.style.display = 'none';
                 secao.classList.remove('ativa');
             });
 
-            // Remove destaque dos botões
             const botoes = document.querySelectorAll('.nav-btn');
             botoes.forEach(botao => botao.classList.remove('active'));
 
-            // Exibe apenas a seção selecionada
             const secaoAlvo = document.getElementById(idSecao);
             if (secaoAlvo) {
                 secaoAlvo.style.display = 'block';
                 secaoAlvo.classList.add('ativa');
             }
 
-            // Destaca o botão clicado
             botaoClicado.classList.add('active');
+        }
+
+        // Lógica da Roda de Newton Interativa
+        let motorLigado = true;
+
+        function ajustarVelocidade(val) {
+            const disco = document.getElementById('discoNewton');
+            if (!motorLigado || val == 0) {
+                disco.style.animationDuration = '0s';
+                return;
+            }
+            // Mapeia o slider para acelerar a rotação
+            let duracao = (101 - val) / 200; 
+            disco.style.animationDuration = duracao + 's';
+        }
+
+        function alternarMotor() {
+            const disco = document.getElementById('discoNewton');
+            const slider = document.getElementById('sliderVelocidade');
+            motorLigado = !motorLigado;
+
+            if (motorLigado) {
+                ajustarVelocidade(slider.value);
+            } else {
+                disco.style.animationDuration = '0s';
+            }
         }
     </script>
 
 </body>
+
 </html>
