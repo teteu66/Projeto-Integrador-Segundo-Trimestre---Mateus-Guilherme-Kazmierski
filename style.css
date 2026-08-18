@@ -1,4 +1,3 @@
-/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +18,6 @@ body {
     flex-direction: column;
     align-items: center;
     border-bottom: 2px solid #29292e;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-title {
@@ -44,10 +42,8 @@ body {
     border-radius: 6px;
     transition: all 0.3s ease;
     cursor: pointer;
-    text-align: center;
 }
 
-/* Estilos individuais dos botões */
 .btn-programacao {
     color: #00adb5;
     border: 2px solid #00adb5;
@@ -56,7 +52,6 @@ body {
 .btn-programacao:hover, .btn-programacao.active {
     background-color: #00adb5;
     color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 173, 181, 0.4);
 }
 
 .btn-robotica {
@@ -67,7 +62,6 @@ body {
 .btn-robotica:hover, .btn-robotica.active {
     background-color: #ff5722;
     color: #ffffff;
-    box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
 }
 
 .btn-fisica {
@@ -78,37 +72,26 @@ body {
 .btn-fisica:hover, .btn-fisica.active {
     background-color: #9c27b0;
     color: #ffffff;
-    box-shadow: 0 0 10px rgba(156, 39, 176, 0.4);
 }
 
-/* Controle de Exibição das Seções */
+/* REGRA DE EXIBIÇÃO: Oculta todas as seções por padrão */
 .secao-conteudo {
-    display: none; /* Oculta todas por padrão */
+    display: none !important;
     padding: 60px 20px;
 }
 
+/* Exibe APENAS a seção ativa */
 .secao-conteudo.ativa {
-    display: block; /* Exibe apenas a seção ativa */
+    display: block !important;
 }
 
-.instrucao-container {
-    text-align: center;
-    padding: 20px;
-}
-
-.instrucao-navegacao {
-    color: #a9a9b2;
-    font-size: 0.95rem;
-}
-
-/* Tags de Categoria */
+/* Tags */
 .tag-optica {
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
     display: inline-block;
     margin-bottom: 15px;
 }
@@ -128,7 +111,7 @@ body {
     color: #818cf8;
 }
 
-/* Layout Seção Programação (Roda de Newton) */
+/* Layout Seção Programação */
 #programacao {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
@@ -198,7 +181,6 @@ body {
     font-size: 0.75rem;
     color: #4ade80;
     font-weight: bold;
-    letter-spacing: 1px;
     margin-bottom: 30px;
 }
 
@@ -207,7 +189,6 @@ body {
     height: 8px;
     background-color: #4ade80;
     border-radius: 50%;
-    box-shadow: 0 0 10px #4ade80;
     animation: piscar 1s infinite alternate;
 }
 
@@ -230,7 +211,6 @@ body {
         #4b0082 255deg 306deg,
         #9400d3 306deg 360deg
     );
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
     animation: girarMotor 0.1s linear infinite;
 }
 
@@ -250,12 +230,7 @@ body {
     text-align: center;
 }
 
-.container-generico h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* Layout Seção Física e Tecnociência (Partes do Olho) */
+/* Layout Seção Física */
 #fisica-tecnociencia {
     background: linear-gradient(135deg, #090d16 0%, #111827 100%);
 }
@@ -275,7 +250,6 @@ body {
     font-size: 2.2rem;
     color: #ffffff;
     margin-bottom: 15px;
-    font-weight: 800;
 }
 
 .cabecalho-secao p {
@@ -295,13 +269,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 30px 25px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-parte:hover {
-    transform: translateY(-5px);
-    border-color: #818cf8;
-    box-shadow: 0 10px 25px rgba(129, 140, 248, 0.15);
 }
 
 .icone-parte {
@@ -329,7 +296,6 @@ body {
     color: #d1d5db;
 }
 
-/* Animações */
 @keyframes girarMotor {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -340,24 +306,10 @@ body {
     to { opacity: 1; }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .container-newton {
         flex-direction: column;
         text-align: center;
         gap: 40px;
-    }
-
-    .componentes-lista {
-        justify-content: center;
-    }
-
-    .header-nav {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-btn {
-        width: 100%;
     }
 }

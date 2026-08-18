@@ -10,36 +10,27 @@
 
 <body>
 
-    <!-- Cabeçalho com o menu de navegação -->
     <header class="header-container">
         <h1 class="header-title">Projeto Integrador - IFA</h1>
         <nav class="header-nav">
-            <a href="#programacao" class="nav-btn btn-programacao">Programação</a>
-            <a href="#robotica" class="nav-btn btn-robotica">Robótica</a>
-            <a href="#fisica-tecnociencia" class="nav-btn btn-fisica">Física e Tecnociência</a>
+            <button class="nav-btn btn-programacao active" onclick="mostrarSecao('programacao', this)">Programação</button>
+            <button class="nav-btn btn-robotica" onclick="mostrarSecao('robotica', this)">Robótica</button>
+            <button class="nav-btn btn-fisica" onclick="mostrarSecao('fisica-tecnociencia', this)">Física e Tecnociência</button>
         </nav>
     </header>
 
     <main>
-        
-        <!-- Apresentação Inicial -->
-        <section class="secao-apresentacao">
-            <p class="instrucao-navegacao">Selecione uma das matérias acima para navegar pelo projeto.</p>
-            <img src="Gemini_Generated_Image_vszhrvvszhrvvszh.png" alt="Apresentação do Projeto" class="imagem-destaque">
-        </section>
-
-        <!-- SEÇÃO: PROGRAMAÇÃO (Roda de Newton) -->
-        <section id="programacao" class="secao-programacao">
+        <!-- SEÇÃO 1: PROGRAMAÇÃO -->
+        <section id="programacao" class="secao-conteudo ativa">
             <div class="container-newton">
-
                 <div class="bloco-texto">
-                    <span class="tag-secao tag-programacao">Programação</span>
+                    <span class="tag-optica tag-programacao">Programação</span>
                     <h2>A Roda de Newton Automatizada</h2>
                     <p>
                         Nesta seção de programação, exploramos a lógica aplicada ao controle de hardware. Recriamos o experimento do disco de Newton automatizando seu funcionamento por meio de código.
                     </p>
                     <p>
-                        Escrevemos o código em **C++ / Arduino** para controlar a rotação de um **motor DC**. Programamos os parâmetros do sistema para girar o disco colorido em alta velocidade e misturar as cores do espectro visível.
+                        Escrevemos o código em <strong>C++ / Arduino</strong> para controlar a rotação de um <strong>motor DC</strong>. Programamos os parâmetros do sistema para girar o disco colorido em alta velocidade e misturar as cores do espectro visível.
                     </p>
 
                     <div class="componentes-lista">
@@ -64,24 +55,31 @@
                         <p class="legenda-visual">Simulação da ilusão de ótica controlada pelo código</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- SEÇÃO: FÍSICA E TECNOCIÊNCIA (Partes do Olho) -->
-        <section id="fisica-tecnociencia" class="secao-fisica-tecnociencia">
-            <div class="container-optica">
+        <!-- SEÇÃO 2: ROBÓTICA -->
+        <section id="robotica" class="secao-conteudo">
+            <div class="container-generico">
+                <span class="tag-optica tag-robotica">Robótica Educacional</span>
+                <h2>Sistemas Robóticos e Automação</h2>
+                <p>Conteúdo da seção de Robótica em desenvolvimento.</p>
+            </div>
+        </section>
 
+        <!-- SEÇÃO 3: FÍSICA E TECNOCIÊNCIA -->
+        <section id="fisica-tecnociencia" class="secao-conteudo">
+            <div class="container-optica">
                 <div class="cabecalho-secao">
-                    <span class="tag-secao tag-fisica">Física & Tecnociência</span>
+                    <span class="tag-optica tag-fisica">Física & Tecnociência</span>
                     <h2>Óptica Visual: O Olho como Instrumento Biológico</h2>
                     <p>
-                        Do ponto de vista da física, o olho humano funciona de maneira análoga a uma câmera fotográfica digital. Os raios de luz atravessam meios refratários até convergirem na retina, onde o sinal luminoso é transformado em impulsos elétricos.
+                        Do ponto de vista da física, o olho humano funciona de maneira análoga a uma câmera fotográfica digital.
+                        Os raios de luz atravessam meios refratários até convergirem na retina, onde o sinal luminoso é transformado em impulsos elétricos.
                     </p>
                 </div>
 
                 <div class="grid-partes-olho">
-
                     <div class="card-parte">
                         <div class="icone-parte">🔍</div>
                         <h3>Córnea & Cristalino</h3>
@@ -117,14 +115,35 @@
                             Atua como um cabo de transmissão de alta velocidade, enviando as informações codificadas diretamente ao córtex visual do cérebro para processamento.
                         </p>
                     </div>
-
                 </div>
-
             </div>
         </section>
-
     </main>
 
-</body>
+    <script>
+        function mostrarSecao(idSecao, botaoClicado) {
+            // Esconde todas as seções
+            const secoes = document.querySelectorAll('.secao-conteudo');
+            secoes.forEach(secao => {
+                secao.style.display = 'none';
+                secao.classList.remove('ativa');
+            });
 
+            // Remove destaque dos botões
+            const botoes = document.querySelectorAll('.nav-btn');
+            botoes.forEach(botao => botao.classList.remove('active'));
+
+            // Exibe apenas a seção selecionada
+            const secaoAlvo = document.getElementById(idSecao);
+            if (secaoAlvo) {
+                secaoAlvo.style.display = 'block';
+                secaoAlvo.classList.add('ativa');
+            }
+
+            // Destaca o botão clicado
+            botaoClicado.classList.add('active');
+        }
+    </script>
+
+</body>
 </html>
