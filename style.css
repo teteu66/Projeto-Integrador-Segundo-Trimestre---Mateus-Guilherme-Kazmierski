@@ -11,7 +11,7 @@ body {
     color: #e1e1e6;
 }
 
-/* Estilização do Cabeçalho e Navegação */
+/* Cabeçalho */
 .header-container {
     background-color: #1f1f23;
     padding: 20px 40px;
@@ -27,7 +27,6 @@ body {
     color: #ffffff;
     margin-bottom: 20px;
     font-weight: 700;
-    letter-spacing: 0.5px;
 }
 
 .header-nav {
@@ -38,7 +37,7 @@ body {
 }
 
 .nav-btn {
-    text-decoration: none;
+    background: transparent;
     font-size: 15px;
     font-weight: 600;
     padding: 10px 22px;
@@ -48,64 +47,90 @@ body {
     text-align: center;
 }
 
-/* Cores dos Botões */
+/* Estilos individuais dos botões */
 .btn-programacao {
-    background-color: transparent;
     color: #00adb5;
     border: 2px solid #00adb5;
 }
 
-.btn-programacao:hover {
+.btn-programacao:hover, .btn-programacao.active {
     background-color: #00adb5;
     color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 173, 181, 0.4);
 }
 
 .btn-robotica {
-    background-color: transparent;
     color: #ff5722;
     border: 2px solid #ff5722;
 }
 
-.btn-robotica:hover {
+.btn-robotica:hover, .btn-robotica.active {
     background-color: #ff5722;
     color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
 }
 
 .btn-fisica {
-    background-color: transparent;
     color: #9c27b0;
     border: 2px solid #9c27b0;
 }
 
-.btn-fisica:hover {
+.btn-fisica:hover, .btn-fisica.active {
     background-color: #9c27b0;
     color: #ffffff;
     box-shadow: 0 0 10px rgba(156, 39, 176, 0.4);
 }
 
-/* Seção Inicial / Imagem Destaque */
-.secao-apresentacao {
-    padding: 40px 20px;
+/* Controle de Exibição das Seções */
+.secao-conteudo {
+    display: none; /* Oculta todas por padrão */
+    padding: 60px 20px;
+}
+
+.secao-conteudo.ativa {
+    display: block; /* Exibe apenas a seção ativa */
+}
+
+.instrucao-container {
     text-align: center;
+    padding: 20px;
 }
 
 .instrucao-navegacao {
-    margin-bottom: 20px;
     color: #a9a9b2;
+    font-size: 0.95rem;
 }
 
-.imagem-destaque {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
+/* Tags de Categoria */
+.tag-optica {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
-/* Seção: Robótica Educacional (Roda de Newton) */
-.secao-robotica-newton {
+.tag-programacao {
+    background-color: rgba(0, 173, 181, 0.15);
+    color: #00adb5;
+}
+
+.tag-robotica {
+    background-color: rgba(255, 87, 34, 0.15);
+    color: #ff5722;
+}
+
+.tag-fisica {
+    background-color: rgba(129, 140, 248, 0.15);
+    color: #818cf8;
+}
+
+/* Layout Seção Programação (Roda de Newton) */
+#programacao {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    padding: 80px 20px;
 }
 
 .container-newton {
@@ -124,7 +149,7 @@ body {
 .bloco-texto h2 {
     font-size: 2.2rem;
     color: #ffffff;
-    margin: 15px 0;
+    margin-bottom: 15px;
 }
 
 .bloco-texto p {
@@ -138,7 +163,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .componente-item {
@@ -149,7 +174,6 @@ body {
     color: #e2e8f0;
 }
 
-/* Painel Visual e Animação */
 .bloco-visual {
     flex: 1;
     display: flex;
@@ -174,6 +198,7 @@ body {
     font-size: 0.75rem;
     color: #4ade80;
     font-weight: bold;
+    letter-spacing: 1px;
     margin-bottom: 30px;
 }
 
@@ -197,12 +222,12 @@ body {
     height: 160px;
     border-radius: 50%;
     background: conic-gradient(
-        #ff0000 0deg 51deg, 
-        #ff7f00 51deg 102deg, 
-        #ffff00 102deg 153deg, 
-        #00ff00 153deg 204deg, 
-        #0000ff 204deg 255deg, 
-        #4b0082 255deg 306deg, 
+        #ff0000 0deg 51deg,
+        #ff7f00 51deg 102deg,
+        #ffff00 102deg 153deg,
+        #00ff00 153deg 204deg,
+        #0000ff 204deg 255deg,
+        #4b0082 255deg 306deg,
         #9400d3 306deg 360deg
     );
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
@@ -214,10 +239,25 @@ body {
     color: #94a3b8;
 }
 
-/* Seção: Física e Tecnociência */
-.secao-fisica-tecnociencia {
+/* Layout Seção Robótica */
+#robotica {
+    background: linear-gradient(135deg, #1c100b 0%, #2a1810 100%);
+}
+
+.container-generico {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-generico h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Layout Seção Física e Tecnociência (Partes do Olho) */
+#fisica-tecnociencia {
     background: linear-gradient(135deg, #090d16 0%, #111827 100%);
-    padding: 80px 20px;
 }
 
 .container-optica {
@@ -231,35 +271,22 @@ body {
     margin: 0 auto 50px auto;
 }
 
-.tag-optica {
-    background-color: rgba(129, 140, 248, 0.15);
-    color: #818cf8;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
 .cabecalho-secao h2 {
     font-size: 2.2rem;
     color: #ffffff;
     margin-bottom: 15px;
+    font-weight: 800;
 }
 
 .cabecalho-secao p {
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #9ca3af;
 }
 
-/* Grid de Cards */
 .grid-partes-olho {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
@@ -268,16 +295,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 30px 25px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-parte:hover {
     transform: translateY(-5px);
     border-color: #818cf8;
+    box-shadow: 0 10px 25px rgba(129, 140, 248, 0.15);
 }
 
 .icone-parte {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
@@ -301,7 +329,7 @@ body {
     color: #d1d5db;
 }
 
-/* Keyframes para Animações */
+/* Animações */
 @keyframes girarMotor {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
