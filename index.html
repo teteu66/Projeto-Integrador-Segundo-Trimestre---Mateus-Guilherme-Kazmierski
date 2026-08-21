@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -10,7 +10,7 @@
 
 <body>
 
-    <!-- Cabeçalho com Navegação Dinâmica -->
+    <!-- Cabeçalho -->
     <header class="header-container">
         <h1 class="header-title">Projeto Integrador - IFA</h1>
         <nav class="header-nav">
@@ -21,22 +21,65 @@
     </header>
 
     <main>
-        <!-- SEÇÃO 1: PROGRAMAÇÃO (Roda de Newton Automatizada) -->
+
+        <!-- SEÇÃO 1: PROGRAMAÇÃO (HTML e CSS) -->
         <section id="programacao" class="secao-conteudo ativa">
+            <div class="container-secao">
+                <div class="cabecalho-secao">
+                    <span class="tag-optica tag-programacao">Programação Web</span>
+                    <h2>Como Funcionam HTML e CSS?</h2>
+                    <p>
+                        A Web moderna é construída através do trabalho conjunto entre linguagens de marcação e estilização.
+                    </p>
+                </div>
+
+                <div class="grid-cards">
+                    <div class="card-info">
+                        <div class="icone-card">🌐</div>
+                        <h3>HTML (HyperText Markup Language)</h3>
+                        <span class="subtitulo-card">O Esqueleto da Página</span>
+                        <p>
+                            O HTML utiliza <strong>tags</strong> (como <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code> e <code>&lt;div&gt;</code>) para estruturar o conteúdo do site. Ele define onde ficam os títulos, parágrafos, botões e imagens.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-card">🎨</div>
+                        <h3>CSS (Cascading Style Sheets)</h3>
+                        <span class="subtitulo-card">A Estilização Visual</span>
+                        <p>
+                            O CSS é responsável pelo design do site. Com ele, aplicamos cores, fontes, espaçamentos, layouts responsivos e animações, transformando a estrutura bruta do HTML em uma interface agradável.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-card">⚙️</div>
+                        <h3>A Integração das Tecnologias</h3>
+                        <span class="subtitulo-card">Estrutura + Estilo + Lógica</span>
+                        <p>
+                            Enquanto o HTML cria a estrutura e o CSS cuida da estética, o JavaScript adiciona interatividade dinâmica, permitindo criar aplicações web completas e responsivas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: ROBÓTICA (Roda de Newton Interativa) -->
+        <section id="robotica" class="secao-conteudo">
             <div class="container-newton">
 
                 <div class="bloco-texto">
-                    <span class="tag-optica tag-programacao">Programação</span>
+                    <span class="tag-optica tag-robotica">Robótica Educacional</span>
                     <h2>A Roda de Newton Automatizada</h2>
                     <p>
-                        Nesta seção de programação, exploramos a lógica aplicada ao controle de hardware. Recriamos o experimento do disco de Newton automatizando seu funcionamento por meio de código.
+                        Nesta seção, aplicamos o controle de hardware para criar uma simulação do Disco de Newton automatizado.
                     </p>
                     <p>
-                        Escrevemos o código em <strong>C++ / Arduino</strong> para controlar a rotação de um <strong>motor DC</strong>. Programamos os parâmetros do sistema para girar o disco colorido em alta velocidade e misturar as cores do espectro visível.
+                        Em um projeto físico, o motor DC é controlado por um microcontrolador (como o Arduino) via sinal <strong>PWM (Pulse Width Modulation)</strong>, permitindo ajustar com precisão a velocidade de rotação do disco colorido.
                     </p>
 
                     <div class="componentes-lista">
-                        <span class="componente-item">💻 Lógica em C++</span>
+                        <span class="componente-item">💻 Controle PWM</span>
                         <span class="componente-item">🤖 Arduino Uno</span>
                         <span class="componente-item">⚙️ Motor DC 5V</span>
                         <span class="componente-item">🎨 Disco de Cores</span>
@@ -46,101 +89,73 @@
                 <div class="bloco-visual">
                     <div class="painel-experimento">
                         <div class="status-arduino">
-                            <span class="led-indicador"></span>
-                            <span>ARDUINO: CÓDIGO EXECUTANDO</span>
+                            <span class="led-indicador" id="ledStatus"></span>
+                            <span id="textoStatus">MOTOR: LIGADO</span>
                         </div>
 
-                        <!-- Elemento interativo do disco -->
+                        <!-- Disco de Newton Interativo -->
                         <div class="espaco-disco">
                             <div id="discoNewton" class="disco-newton-colorido"></div>
                         </div>
 
+                        <!-- Controles da Roda -->
                         <div class="controles-interativos">
-                            <label for="sliderVelocidade">Velocidade de Rotação (RPM):</label>
-                            <input type="range" id="sliderVelocidade" min="0" max="100" value="50" oninput="ajustarVelocidade(this.value)">
+                            <label for="sliderVelocidade">Velocidade do Motor (RPM):</label>
+                            <input type="range" id="sliderVelocidade" min="1" max="100" value="50" oninput="ajustarVelocidade(this.value)">
                             <button class="btn-interativo" onclick="alternarMotor()">Ligar / Desligar Motor</button>
                         </div>
 
-                        <p class="legenda-visual">Simulação da fusão de cores por sobreposição de freqüência visual</p>
+                        <p class="legenda-visual">Em alta rotação, a sobreposição do espectro visível gera a ilusão da cor branca.</p>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- SEÇÃO 2: ROBÓTICA -->
-        <section id="robotica" class="secao-conteudo">
-            <div class="container-generico">
-                <span class="tag-optica tag-robotica">Robótica Educacional</span>
-                <h2>Sistemas Robóticos e Automação</h2>
-                <p>
-                    A robótica integra mecânica, eletrônica e programação para criar sistemas autônomos capazes de realizar tarefas com precisão.
-                </p>
-                <div class="grid-partes-olho" style="margin-top: 30px;">
-                    <div class="card-parte">
-                        <div class="icone-parte">🧠</div>
-                        <h3>Microcontroladores</h3>
-                        <span class="funcao-fisica">Processamento de Sinais</span>
-                        <p>Atuam como o cérebro dos robôs, interpretando leituras de sensores e executando algoritmos de controle.</p>
-                    </div>
-                    <div class="card-parte">
-                        <div class="icone-parte">🔌</div>
-                        <h3>Sensores & Atuadores</h3>
-                        <span class="funcao-fisica">Interação com o Meio</span>
-                        <p>Convertem grandeza físicas (distância, luz, temperatura) em dados e acionam motores e relés.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
         <!-- SEÇÃO 3: FÍSICA E TECNOCIÊNCIA (Partes do Olho) -->
         <section id="fisica-tecnociencia" class="secao-conteudo">
-            <div class="container-optica">
+            <div class="container-secao">
 
                 <div class="cabecalho-secao">
                     <span class="tag-optica tag-fisica">Física & Tecnociência</span>
-                    <h2>Óptica Visual: O Olho como Instrumento Biológico</h2>
+                    <h2>Óptica Visual: O Olho Humano</h2>
                     <p>
-                        Do ponto de vista da física, o olho humano funciona de maneira análoga a uma câmera fotográfica digital.
-                        Os raios de luz atravessam meios refratários até convergirem na retina, onde o sinal luminoso é transformado em impulsos elétricos.
+                        Do ponto de vista da física, o olho funciona como uma câmera fotográfica. A luz atravessa os meios refratários até projetar uma imagem focalizada na retina.
                     </p>
                 </div>
 
-                <div class="grid-partes-olho">
+                <div class="grid-cards">
 
-                    <div class="card-parte">
-                        <div class="icone-parte">🔍</div>
+                    <div class="card-info">
+                        <div class="imagem-olho-container">
+                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80" alt="Córnea e Cristalino" class="img-olho">
+                        </div>
                         <h3>Córnea & Cristalino</h3>
-                        <span class="funcao-fisica">Sistema de Lentes Convergentes</span>
+                        <span class="subtitulo-card">Lentes Convergentes</span>
                         <p>
-                            A córnea realiza a primeira refração da luz. O cristalino atua como uma lente biológica ajustável (acomodação visual), mudando sua curvatura para focar objetos a diferentes distâncias.
+                            A córnea realiza a refração principal da luz. O cristalino altera sua curvatura (acomodação visual) para focar objetos a diferentes distâncias.
                         </p>
                     </div>
 
-                    <div class="card-parte">
-                        <div class="icone-parte">📸</div>
+                    <div class="card-info">
+                        <div class="imagem-olho-container">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" alt="Íris e Pupila" class="img-olho">
+                        </div>
                         <h3>Íris & Pupila</h3>
-                        <span class="funcao-fisica">Diafragma e Abertura</span>
+                        <span class="subtitulo-card">Diafragma Ajustável</span>
                         <p>
-                            A íris regula o diâmetro da pupila em resposta à intensidade de luz do ambiente, controlando a quantidade de energia luminosa que atinge a retina.
+                            A íris controla o diâmetro da pupila em resposta à luminosidade, ajustando a quantidade de luz que entra no olho.
                         </p>
                     </div>
 
-                    <div class="card-parte">
-                        <div class="icone-parte">🎞️</div>
-                        <h3>Retina</h3>
-                        <span class="funcao-fisica">Anteparo e Fotodetector</span>
+                    <div class="card-info">
+                        <div class="imagem-olho-container">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" alt="Retina e Fotorreceptores" class="img-olho">
+                        </div>
+                        <h3>Retina & Nervo Óptico</h3>
+                        <span class="subtitulo-card">Sensor e Transmissão</span>
                         <p>
-                            Superfície onde a imagem real e invertida é formada. Contém fotorreceptores (cones e bastonetes) que convertem fótons em sinais elétricos.
-                        </p>
-                    </div>
-
-                    <div class="card-parte">
-                        <div class="icone-parte">⚡</div>
-                        <h3>Nervo Óptico</h3>
-                        <span class="funcao-fisica">Transmissão de Dados</span>
-                        <p>
-                            Atua como um cabo de transmissão de alta velocidade, enviando as informações codificadas diretamente ao córtex visual do cérebro para processamento.
+                            A retina possui fotorreceptores (cones e bastonetes) que convertem a luz em impulsos elétricos, enviados ao cérebro pelo nervo óptico.
                         </p>
                     </div>
 
@@ -151,9 +166,8 @@
 
     </main>
 
-    <!-- Script de Interatividade e Troca de Seções -->
     <script>
-        // Função para trocar de seção
+        // Função para alternar entre as seções
         function mostrarSecao(idSecao, botaoClicado) {
             const secoes = document.querySelectorAll('.secao-conteudo');
             secoes.forEach(secao => {
@@ -173,7 +187,7 @@
             botaoClicado.classList.add('active');
         }
 
-        // Lógica da Roda de Newton Interativa
+        // Lógica da Roda de Newton
         let motorLigado = true;
 
         function ajustarVelocidade(val) {
@@ -182,7 +196,6 @@
                 disco.style.animationDuration = '0s';
                 return;
             }
-            // Mapeia o slider para acelerar a rotação
             let duracao = (101 - val) / 200; 
             disco.style.animationDuration = duracao + 's';
         }
@@ -190,12 +203,21 @@
         function alternarMotor() {
             const disco = document.getElementById('discoNewton');
             const slider = document.getElementById('sliderVelocidade');
+            const led = document.getElementById('ledStatus');
+            const textoStatus = document.getElementById('textoStatus');
+            
             motorLigado = !motorLigado;
 
             if (motorLigado) {
                 ajustarVelocidade(slider.value);
+                led.style.backgroundColor = '#4ade80';
+                led.style.boxShadow = '0 0 10px #4ade80';
+                textoStatus.innerText = 'MOTOR: LIGADO';
             } else {
                 disco.style.animationDuration = '0s';
+                led.style.backgroundColor = '#ef4444';
+                led.style.boxShadow = '0 0 10px #ef4444';
+                textoStatus.innerText = 'MOTOR: DESLIGADO';
             }
         }
     </script>
